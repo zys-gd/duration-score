@@ -5,3 +5,21 @@ services:
 
     ZYS\DurationScoreBundle\DurationScore:
         resource: '../../DurationScore/*'
+
+    ZYS\DurationScoreBundle\Service:
+        resource: '../../Service/*'
+
+    ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\Handler\:
+        resource: '../../DurationScore/ScoreTransformation/Handler/*'
+        tags:
+            - { name: duration_score.score_transformation_handler }
+
+    ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\:
+        resource: '../../DurationScore/TimeCalculation/Handler/*'
+        tags:
+            - { name: duration_score.time_calculation_handler }
+
+
+    ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandlerProvider:
+        arguments:
+            $timeCalculationDefaultHandler: ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\StraightAlgorithmHandler

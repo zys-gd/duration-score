@@ -6,9 +6,7 @@ namespace ZYS\DurationScoreBundle\DurationScore\TimeCalculation;
 
 class TimeCalculationAlgorithm
 {
-    const ALGORITHMS = [
-        'straight',
-        'google_directions_30',
-        'google_directions'
-    ];
+    const STRAIGHT = 'straight';
+    const GOOGLE_DIRECTIONS_30 = 'google_directions_30';
+    const GOOGLE_DIRECTIONS = 'google_directions';
 }

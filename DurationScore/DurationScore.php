@@ -4,8 +4,9 @@
 namespace ZYS\DurationScoreBundle\DurationScore;
 
 
-use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationInterface;
-use ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationInterface;
+use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\Exception\HandlerNotFountException;
+use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationHandlerProvider;
+use ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandlerProvider;
 
 /**
  * Class DurationScore
@@ -15,23 +16,23 @@ class DurationScore implements DurationScoreInterface
 {
 
     /**
-     * @var ScoreTransformationInterface
+     * @var ScoreTransformationHandlerProvider
      */
     private $scoreTransformation;
     /**
-     * @var TimeCalculationInterface
+     * @var TimeCalculationHandlerProvider
      */
     private $timeCalculation;
 
     /**
      * DurationScore constructor.
      *
-     * @param ScoreTransformationInterface $scoreTransformation
-     * @param TimeCalculationInterface     $timeCalculation
+     * @param ScoreTransformationHandlerProvider $scoreTransformation
+     * @param TimeCalculationHandlerProvider     $timeCalculation
      */
     public function __construct(
-        ScoreTransformationInterface $scoreTransformation,
-        TimeCalculationInterface $timeCalculation
+        ScoreTransformationHandlerProvider $scoreTransformation,
+        TimeCalculationHandlerProvider $timeCalculation
     )
     {
         $this->scoreTransformation = $scoreTransformation;
@@ -49,10 +50,20 @@ class DurationScore implements DurationScoreInterface
     public function calculate(
         string $homeCoordinates,
         string $workCoordinates,
-        string $algorithm = 'straight',
+        string $algorithm = '',
         string $transformationMethod = ''
     ): int
     {
-        // TODO: Implement calculate() method.
+        $calculationHandler = $this->timeCalculation->get($algorithm);
+        $minutes            = $calculationHandler->calculate($homeCoordinates, $workCoordinates);
+
+        try {
+            $methodHandler = $this->scoreTransformation->get($transformationMethod);
+            $score         = $methodHandler->transform($minutes);
+        } catch (HandlerNotFountException $e) {
+            $score = $minutes;
+        }
+
+        return $score;
     }
 }

@@ -6,9 +6,7 @@ namespace ZYS\DurationScoreBundle\DurationScore\ScoreTransformation;
 
 class ScoreTransformationMethod
 {
-    const METHODS = [
-        'no_transformation',
-        'even_distribution',
-        'log_with_base'
-    ];
+
+    const EVEN_DISTRIBUTION = 'even_distribution';
+    const LOG_WITH_BASE     = 'log_with_base';
 }

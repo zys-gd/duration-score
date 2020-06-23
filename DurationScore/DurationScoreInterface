@@ -16,7 +16,7 @@ interface DurationScoreInterface
     public function calculate(
         string $homeCoordinates,
         string $workCoordinates,
-        string $algorithm = 'straight',
+        string $algorithm = '',
         string $transformationMethod = ''
     ): int;
 }
