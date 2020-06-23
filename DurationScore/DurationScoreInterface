@@ -1,0 +1,22 @@
+<?php
+
+
+namespace ZYS\DurationScoreBundle\DurationScore;
+
+interface DurationScoreInterface
+{
+    /**
+     * @param string $homeCoordinates
+     * @param string $workCoordinates
+     * @param string $algorithm
+     * @param string $transformationMethod
+     *
+     * @return int
+     */
+    public function calculate(
+        string $homeCoordinates,
+        string $workCoordinates,
+        string $algorithm = 'straight',
+        string $transformationMethod = ''
+    ): int;
+}
