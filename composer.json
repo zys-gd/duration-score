@@ -1,0 +1,21 @@
+{
+    "type": "library",
+    "name": "zys-gd/duration-score",
+    "authors": [
+        {
+            "name": "Zakharenko Yurii"
+        }
+    ],
+    "description": "",
+    "require": {
+        "php": ">=7.2",
+        "symfony/http-kernel": "^5.1",
+        "symfony/yaml": "^5.1",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZYS\\DurationScoreBundle\\": ""
+        }
+    }
+}
