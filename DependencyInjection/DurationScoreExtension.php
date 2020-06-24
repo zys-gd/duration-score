@@ -17,5 +17,9 @@ class DurationScoreExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $configuration = new Configuration();
+        $this->processConfiguration($configuration, $configs);
+
     }
 }
