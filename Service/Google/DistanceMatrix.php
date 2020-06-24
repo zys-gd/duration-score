@@ -13,10 +13,6 @@ class DistanceMatrix
      */
     private $googleApiKey;
     /**
-     * @var HttpClient
-     */
-    private $client;
-    /**
      * @var string
      */
     private $googleEndpoint;
@@ -28,10 +24,9 @@ class DistanceMatrix
      * @param string     $googleApiKey
      * @param HttpClient $client
      */
-    public function __construct(string $googleEndpoint, string $googleApiKey, HttpClient $client)
+    public function __construct(string $googleEndpoint, string $googleApiKey)
     {
         $this->googleApiKey   = $googleApiKey;
-        $this->client         = $client;
         $this->googleEndpoint = $googleEndpoint;
     }
 
@@ -43,9 +38,10 @@ class DistanceMatrix
      */
     public function getDistance(string $origins, string $destinations)
     {
-        $query = "origins=$origins&destinations=$destinations&language=en-EN&key=$this->googleApiKey";
-        $data  = $this->client->createForBaseUri($this->googleEndpoint . "?$query");
+        $query  = "origins=$origins&destinations=$destinations&language=en-EN&key=$this->googleApiKey";
+        $client = HttpClient::createForBaseUri($this->googleEndpoint . "?$query");
+        $data   = $client->request('GET', $this->googleEndpoint . "?$query");
 
-        return $data = json_decode($data);
+        return $data->getContent();
     }
 }

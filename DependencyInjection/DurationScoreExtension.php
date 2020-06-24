@@ -21,6 +21,6 @@ class DurationScoreExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('google_api_key', $config['google_api_key']);
+        // $container->setParameter('google_api_key', $config['google_api_key']);
     }
 }

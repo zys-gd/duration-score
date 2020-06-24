@@ -18,12 +18,12 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('duration_score');
 
-        $treeBuilder->getRootNode()
-            ->children()
-            ->scalarNode('google_api_key')
-            ->isRequired()
-            ->end()
-            ->end();
+        // $treeBuilder->getRootNode()
+        //     ->children()
+        //     ->scalarNode('google_api_key')
+        //     ->isRequired()
+        //     ->end()
+        //     ->end();
 
         return $treeBuilder;
     }

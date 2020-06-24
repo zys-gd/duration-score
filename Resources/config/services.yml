@@ -23,3 +23,8 @@ services:
     ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandlerProvider:
         arguments:
             $timeCalculationDefaultHandler: ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\StraightAlgorithmHandler
+
+    ZYS\DurationScoreBundle\Service\Google\DistanceMatrix:
+        arguments:
+            $googleApiKey: '%env(GOOGLE_API_KEY)%'
+            $googleEndpoint: '%env(GOOGLE_ENDPOINT)%'
