@@ -5,14 +5,14 @@ namespace ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\Handler;
 
 
 use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationInterface;
-use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationMethod;
 
 class EvenDistributionHandler implements ScoreTransformationInterface
 {
+    const EVEN_DISTRIBUTION = 'even_distribution';
 
     public function canHandle(string $method): bool
     {
-        return $method === ScoreTransformationMethod::EVEN_DISTRIBUTION;
+        return $method === static::EVEN_DISTRIBUTION;
     }
 
     /**

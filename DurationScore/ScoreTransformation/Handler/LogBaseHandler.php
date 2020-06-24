@@ -5,13 +5,14 @@ namespace ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\Handler;
 
 
 use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationInterface;
-use ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\ScoreTransformationMethod;
 
 class LogBaseHandler implements ScoreTransformationInterface
 {
+    const LOG_WITH_BASE = 'log_with_base';
+
     public function canHandle(string $method): bool
     {
-        return $method === ScoreTransformationMethod::LOG_WITH_BASE;
+        return $method === static::LOG_WITH_BASE;
     }
 
     /**
