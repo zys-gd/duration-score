@@ -19,7 +19,8 @@ class DurationScoreExtension extends Extension
         $loader->load('services.yml');
 
         $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $config        = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('google_api_key', $config['google_api_key']);
     }
 }
