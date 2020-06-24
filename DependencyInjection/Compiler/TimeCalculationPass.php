@@ -20,3 +20,4 @@ class TimeCalculationPass implements CompilerPassInterface
             $definition->addMethodCall('addHandler', [new Reference($id)]);
         }
     }
+}
