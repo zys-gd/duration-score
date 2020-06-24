@@ -13,7 +13,7 @@ class TimeCalculationPass implements CompilerPassInterface
 
     public function process(ContainerBuilder $container)
     {
-        $definition     = $container->findDefinition('ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\TimeCalculationHandlerProvider');
+        $definition     = $container->findDefinition('ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandlerProvider');
         $taggedServices = $container->findTaggedServiceIds('duration_score.time_calculation_handler');
 
         foreach ($taggedServices as $id => $tags) {
