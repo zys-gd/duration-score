@@ -6,8 +6,8 @@ services:
     ZYS\DurationScoreBundle\DurationScore\:
         resource: '../../DurationScore/*'
 
-#    ZYS\DurationScoreBundle\Service\:
-#        resource: '../../Service/*'
+    ZYS\DurationScoreBundle\Service\:
+        resource: '../../Service/*'
 
     ZYS\DurationScoreBundle\DurationScore\ScoreTransformation\Handler\:
         resource: '../../DurationScore/ScoreTransformation/Handler/*'
