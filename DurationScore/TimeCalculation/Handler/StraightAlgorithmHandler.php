@@ -33,6 +33,7 @@ class StraightAlgorithmHandler implements TimeCalculationInterface
         [$lat2, $lon2] = explode(',', $workCoordinates);
         $distance = $this->straightDistance->distance($lat1, $lon1, $lat2, $lon2);
 
-        return round($distance / static::SPEED);
+        $minutes = round($distance / static::SPEED) * 60;
+        return $minutes;
     }
 }

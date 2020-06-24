@@ -44,6 +44,7 @@ class GoogleDirections30Handler implements TimeCalculationInterface
         $distanceMatrix = $this->distanceMatrix->getDistance($homeCoordinates, $workCoordinates);
         $data           = $this->distanceSimplifier->convert($distanceMatrix);
 
-        return round($data['distance'] / static::SPEED);
+        $minutes = round($data['distance'] / static::SPEED) * 60;
+        return $minutes;
     }
 }
