@@ -19,10 +19,9 @@ services:
         tags:
             - { name: duration_score.time_calculation_handler }
 
-
     ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandlerProvider:
         arguments:
-            $timeCalculationDefaultHandler: ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\StraightAlgorithmHandler
+            $timeCalculationDefaultHandler: '@ZYS\DurationScoreBundle\DurationScore\TimeCalculation\Handler\StraightAlgorithmHandler'
 
     ZYS\DurationScoreBundle\Service\Google\DistanceMatrix:
         arguments:
