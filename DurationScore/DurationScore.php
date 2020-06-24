@@ -47,7 +47,7 @@ class DurationScore implements DurationScoreInterface
      *
      * @return int
      */
-    public function calculate(
+    public function evaluate(
         string $homeCoordinates,
         string $workCoordinates,
         string $algorithm = '',
