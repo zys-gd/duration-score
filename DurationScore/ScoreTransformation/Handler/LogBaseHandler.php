@@ -22,6 +22,9 @@ class LogBaseHandler implements ScoreTransformationInterface
      */
     public function transform(int $minutes): int
     {
-        // TODO: Implement transform() method.
+        if ($minutes >= 1) {
+            return log($minutes, 2);
+        }
+        return 0;
     }
 }
