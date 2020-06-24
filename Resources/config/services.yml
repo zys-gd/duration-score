@@ -3,7 +3,7 @@ services:
         autowire: true
         autoconfigure: true
 
-    ZYS\DurationScoreBundle\DurationScore:
+    ZYS\DurationScoreBundle\DurationScore\:
         resource: '../../DurationScore/*'
 
     ZYS\DurationScoreBundle\Service:
