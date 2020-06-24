@@ -12,7 +12,7 @@ use ZYS\DurationScoreBundle\DurationScore\TimeCalculation\TimeCalculationHandler
  * Class DurationScore
  * @package ZYS\DurationScoreBundle\DurationScore
  */
-class DurationScore implements DurationScoreInterface
+class DurationScore
 {
 
     /**
